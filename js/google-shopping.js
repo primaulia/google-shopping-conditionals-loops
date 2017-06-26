@@ -1,5 +1,9 @@
-/// Declre JSON object
+/// Declare JSON object
 var data = require('../products.json')
+
+/////////////////////////////
+// INSTRUCTORS' SAMPLE CODE
+/////////////////////////////
 
 // 1.  Print the count of these results. Where else is this count information stored in the search results?
 // var itemCount = 0
@@ -47,12 +51,17 @@ function getItemsByBrand(items, brand) {
     }
     return selectedItemsArray
 }
-var selectedItemsByBrand = getItemsByBrand(getItems(data), 'Sony')
-console.log(selectedItemsByBrand)
-var selectedItemsByBrand = getItemsByBrand(getItems(data), 'Canon')
-console.log(selectedItemsByBrand)
-var selectedItemsByBrand = getItemsByBrand(getItems(data), 'Sony')
-console.log(selectedItemsByBrand)
+
+// TESTING SEARCHES
+// var selectedItemsByBrand = getItemsByBrand(getItems(data), 'Sony')
+// var selectedItemsByBrand = getItemsByBrand(getItems(data), 'Canon')
+// console.log(selectedItemsByBrand)
+// console.log(selectedItemsByBrand)
+// var selectedItemsByBrand = getItemsByBrand(getItems(data), 'Nikon')
+// console.log(selectedItemsByBrand)
+// var selectedItemsByBrand = getItemsByBrand(getItems(data), 'Panasonic')
+// console.log(selectedItemsByBrand)
+
 
 
 ////////////////////////////
@@ -122,3 +131,29 @@ function getAvailableProducts(items) {
 // var selectedProducts = getAvailableProducts(getItems(data))
 // console.log(selectedProducts)
 // console.log('There are ' + selectedProducts.length + ' products available.')
+
+////////////////////////////
+// 5. Use your functions from 1 - 4
+////////////////////////////
+
+
+var SonyProducts = getItemsByBrand(getItems(data), 'Sony')
+var AvailSonyProducts = getAvailableProducts(SonyProducts)
+var AvailAdoramaCam = getAvailableProducts(getItemsByAuthor(getItems(data), 'Adorama Camera'))
+var eBayNikon = getItemsByAuthor(getItemsByBrand(getItems(data), 'Nikon'), 'eBay')
+
+console.log(SonyProducts)
+
+console.log(AvailSonyProducts)
+
+if (AvailAdoramaCam.length === 0) {
+   console.log('No avail items for author by Adorama Camera')
+} else {
+  console.log(AvailAdoramaCam)
+}
+
+if (eBayNikon.length === 0) {
+   console.log('No items made by Nikon with author eBay')
+} else {
+  console.log(eBayNikon)
+}
