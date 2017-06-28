@@ -58,6 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var filteredItems = items.filter(getItemsByBrand)
       shoppingList.innerHTML = ''
+
+      // set filteredItems variable back to items, if the array of filtered items is empty
+      if (filteredItems.length === 0) {
+        filteredItems = items
+      }
+
       filteredItems.forEach(function (item) {
         // console.log(shoppingList);
         var listItem = document.createElement('li')
