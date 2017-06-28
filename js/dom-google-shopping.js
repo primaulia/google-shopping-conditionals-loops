@@ -53,15 +53,12 @@ document.addEventListener('DOMContentLoaded', function () {
       return brandNameInData === searchValue
     }
 
-    function filterItems(keyword, callback)
-
     searchBrand.addEventListener('keyup', function () {
       // console.log(items)
 
       var filteredItems = items.filter(getItemsByBrand)
       shoppingList.innerHTML = ''
       filteredItems.forEach(function (item) {
-        console.log(item);
         // console.log(shoppingList);
         var listItem = document.createElement('li')
         listItem.textContent = item.product.title
