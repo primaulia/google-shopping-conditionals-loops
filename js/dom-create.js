@@ -1,42 +1,22 @@
-  // UPDATING EXISTING ELEMENT
-  // target the p element
-  var p = document.querySelector('p')
+var p = document.querySelector('p')
+var button = document.querySelector('button')
+var button2 = document.querySelector('#a')
+var products = ['Nikon Camera G2000', 'CANON D30', 'Leica X7']
+p.textContent = 'my shopping list descriptions'
+button.addEventListener('click', paraCreator)
+button2.addEventListener('click', liCreator)
+function paraCreator () {
+  var newP = document.createElement('p')
+  newP.textContent = 'new paragraph'
+  var body = document.body
+  body.appendChild(newP)
+}
 
-  // update the p textContent property
-  // p.textContent = 'my new description'
-
-  // TARGET THE BUTTON
-  var button = document.querySelector('button')
-  button.addEventListener('click', addToCart)
-
-  function addToCart () {
-    var shoppingList = document.querySelectorAll('#shopping-list li')
-    if (!shoppingList.length) {
-      alert('shopping list is empty')
-      return // need to return, so the function stops running
-    }
-
-    var cartList = document.querySelector('#cart-list')
-    var lastItem = shoppingList[shoppingList.length - 1]
-    cartList.appendChild(lastItem)
-  }
-
-  // newListText is the input
-  function ulCreator (newListText) {
-    var newLi = document.createElement('li')
-    newLi.textContent = newListText
-
-    var ul = document.querySelector('ul')
-    ul.appendChild(newLi)
-  }
-
-  function paraCreator () {
-    // CREATING NEW ELEMENT
-    // create new paragraph
-    var newP = document.createElement('p')
-    newP.textContent = 'new paragraphzzzz'
-    // target the parent
-    var body = document.body
-    body.appendChild(newP)
-  }
-})
+function liCreator () {
+  var newLi = document.createElement('li')
+  newLi = document.getElementsByTagName('li')[0]
+  // products.pop() products[products.length - 1]
+  var body2 = document.querySelector('#c')
+  body2.appendChild(newLi)
+  document.querySelector()
+}
